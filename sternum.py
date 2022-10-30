@@ -4,12 +4,14 @@ import time
 import os
 from database import DataBase
 
-file_names = [
+vehicles = [
     ('1.jpg', 'hybrid'), # 012-34-589
     ('2.jpg', 'fuel'), # 750-62-834
     ('4.jpg', 'hybrid'),  # 29-521-65
     ('5.jpg', 'fuel'),  # 19-210-2017
     ('6.jpg', 'hybrid'), # 26-405-20
+    ('7.jpg', 'public'), # 26-405-25
+    ('8.jpg', 'public'), # 26-405-26
     ('25.jpg','public'), # 012-34-525
     ('26.jpg','public'), # 012-34-526
     ('30.jpg','fuel'), # 012-34-530
@@ -103,10 +105,10 @@ if __name__ == "__main__":
     database = DataBase()
     database.create_database()
 
-    for file_name in file_names:
+    for vehicle in vehicles:
         current_dir = os.getcwd()
-        image_file_name = file_name[0]
-        car_type = file_name[1]
+        image_file_name = vehicle[0]
+        car_type = vehicle[1]
         full_file_path = os.path.join(current_dir,image_file_name)
         can_enter, license_number = parking_entrance(full_file_path)
         if can_enter :
